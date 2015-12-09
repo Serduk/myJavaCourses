@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;test.BrowserUtil.java&apos; to &apos;BrowserUtis.java&apos;&#x0A;- Original project: &apos;much&apos;&#x0A;- Original element: &apos;test.BrowserUtil.java&apos;&#x0A;- Renamed element: &apos;test.BrowserUtis.java&apos;" description="Rename compilation unit &apos;BrowserUtil.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;test{BrowserUtil.java" name="BrowserUtis.java" references="false" stamp="1430236993316" version="1.0"/>
+</session>
