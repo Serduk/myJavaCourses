@@ -2,8 +2,8 @@
 <suite name="My test suite">
     <test name="Testing">
         <classes>
-            <class name="pmHome.pmLess5TestNG.firstRunTestNG" />
-            <class name="pmHome.pmLess5TestNG.DependensTests" />
+            <class name="pmHome.pmClassWork.pmLess5TestNG.firstRunTestNG" />
+            <class name="pmHome.pmClassWork.pmLess5TestNG.DependensTests" />
         </classes>
     </test>
 </suite>

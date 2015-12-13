@@ -1,4 +1,4 @@
-package pmHome.pmLess5TestNG;
+package pmHome.pmClassWork.pmLess5TestNG;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;

@@ -1,4 +1,4 @@
-package pmHome.pmLess3;
+package pmHome.pmClassWork.pmLess3;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +9,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * Created by serega on 25/11/15.
