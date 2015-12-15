@@ -20,15 +20,16 @@ public class mainMobRegOnDating {
     public static void main(String[] args) throws InterruptedException, IOException {
         System.setProperty("webdriver.chrome.driver", "src/sources/chromedriver");
 
-        //Map for monile emulation
-        HashMap<String, String> mobileEmulation = new HashMap<String, String>();
+        //Map for mobile emulation
+        Map<String, String> mobileEmulation = new HashMap<String, String>();
         mobileEmulation.put("deviceName", "Google Nexus 5");
 
-        //Map for chrome options
+        //Map for option
         Map<String, Object> chromeOptions = new HashMap<String, Object>();
         chromeOptions.put("mobileEmulation", mobileEmulation);
+        String [] argsLang = {"--lang=es"};
+        chromeOptions.put("args", argsLang);
         DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-        capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 
         //Start driver
 
