@@ -1,9 +1,0 @@
-<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
-<suite name="Parallel" parallel="classes" thread-count="5">
-    <test name="Testing">
-        <classes>
-            <class name="pmHome.pmClassWork.pmLess5TestNG.firstRunTestNG" />
-            <class name="pmHome.pmClassWork.pmLess5TestNG.DependensTests" />
-        </classes>
-    </test>
-</suite>
