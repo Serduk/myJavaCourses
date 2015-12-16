@@ -21,13 +21,16 @@
                 <configuration>
                     <!-- Suite testng xml file to consider for test execution -->
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
-                        <suiteXmlFile>suites-test-testng.xml</suiteXmlFile>
-                    </suiteXmlFiles>
-                </configuration>
-            </plugin>
-            <!-- Compiler plugin configures the java version to be used for compiling
-                the code -->
+            <!--
+           <suiteXmlFile>testng.xml</suiteXmlFile>
+           <suiteXmlFile>suites-test-testng.xml</suiteXmlFile>
+            -->
+                        <suiteXmlFile>firstParallel.xml</suiteXmlFile>
+       </suiteXmlFiles>
+   </configuration>
+</plugin>
+<!-- Compiler plugin configures the java version to be used for compiling
+   the code -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
@@ -43,6 +46,11 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>6.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>2.48.2</version>
         </dependency>
     </dependencies>
 
