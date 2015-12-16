@@ -25,7 +25,7 @@
            <suiteXmlFile>testng.xml</suiteXmlFile>
            <suiteXmlFile>suites-test-testng.xml</suiteXmlFile>
             -->
-                        <suiteXmlFile>firstParallel.xml</suiteXmlFile>
+                        <suiteXmlFile>test/java/oldTestFromPreviousCourse/${test.xml}</suiteXmlFile>
        </suiteXmlFiles>
    </configuration>
 </plugin>
