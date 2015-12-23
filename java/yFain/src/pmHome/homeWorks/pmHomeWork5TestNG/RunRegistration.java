@@ -14,9 +14,9 @@ import java.util.Map;
  * Created by serega on 23/12/15.
  */
 public class RunRegistration {
-    WebDriver driver;
+
     UserData ud = new UserData();
-    MobIndexPage mib = new MobIndexPage(driver);
+
     ScreenShotUtils scrn = new ScreenShotUtils();
 
     @DataProvider(name = "dp")
@@ -49,12 +49,11 @@ public class RunRegistration {
         chromeOptions.put("mobileEmulation", mobileEmulation);
         String [] argsLang = {"--lang=es"};
         chromeOptions.put("args", argsLang);
-
-
-
-        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-        driver = new ChromeDriver(capabilities);
     }
+
+    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+    WebDriver driver = new ChromeDriver(capabilities);
+    MobIndexPage mib = new MobIndexPage(driver);
 
     @Test(dataProvider = "dp")
     public void testParseLocation(String domain){
