@@ -12,17 +12,17 @@ import org.testng.annotations.*;
 public class firstRunTestNG {
     WebDriver driver;
 
-//    @BeforeTest
-//    public void setup(){
-//        System.out.println("@BeforeTest");
-//        driver = new FirefoxDriver();
-//    }
-
-    @BeforeMethod
-    public void setUp(){
-        System.out.println("@BeforeMethod");
+    @BeforeTest
+    public void setup(){
+        System.out.println("@BeforeTest");
         driver = new FirefoxDriver();
     }
+
+//    @BeforeMethod
+//    public void setUp(){
+//        System.out.println("@BeforeMethod");
+//        driver = new FirefoxDriver();
+//    }
 
     @Test
     public void test1(){
@@ -37,15 +37,15 @@ public class firstRunTestNG {
         System.out.println("I am a second test");
     }
 
-//    @AfterTest
-//    public void shutDown(){
-//        System.out.println("@AfterTest");
-//        driver.quit();
-//    }
-
-    @AfterMethod
-    public void shutDownMethod(){
-        System.out.println("@AfterMethod");
+    @AfterTest
+    public void shutDown(){
+        System.out.println("@AfterTest");
         driver.quit();
     }
+
+//    @AfterMethod
+//    public void shutDownMethod(){
+//        System.out.println("@AfterMethod");
+//        driver.quit();
+//    }
 }
