@@ -1,4 +1,5 @@
 .metadata
+/auto-tests
 /java/.idea
 /java/edu.iml
 /java/yFain/out
