@@ -7,6 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+<<<<<<< HEAD
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -18,5 +19,9 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="selenium-java-2.48.2" level="project" />
+=======
+    <orderEntry type="library" name="libs" level="project" />
+    <orderEntry type="library" name="selenium-2.48.2" level="project" />
+>>>>>>> origin
   </component>
 </module>
