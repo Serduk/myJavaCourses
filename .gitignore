@@ -6,3 +6,12 @@
 /java/yFain/.idea
 /java/myTestMaven/.idea
 /java/myTestMaven/target/
+
+/java/erise/bin/
+/java/erise/target/
+/java/erise/runconfigs/*.xml
+/java/erise/.idea
+/java/erise/erise.iml
+/java/erise/.settings/*
+/java/erise/temp/
+/java/erise/test-output/
