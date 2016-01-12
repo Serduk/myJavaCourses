@@ -8,6 +8,19 @@
 /java/myTestMaven/target/
 /java/myTestMaven/myTestMaven.iml
 
+/java/myFirstTestMaven/.idea
+/java/myFirstTestMaven/target/
+/java/myFirstTestMaven/myTestMaven.iml
+/java/myFirstTestMaven/bin/
+/java/myFirstTestMaven/target/
+/java/myFirstTestMaven/runconfigs/*.xml
+/java/myFirstTestMaven/.idea
+/java/myFirstTestMaven/erise.iml
+/java/myFirstTestMaven/.settings/*
+/java/myFirstTestMaven/temp/
+/java/myFirstTestMaven/test-output/
+/java/myFirstTestMaven/src/core/core.iml
+
 /java/erise/bin/
 /java/erise/target/
 /java/erise/runconfigs/*.xml
@@ -16,4 +29,4 @@
 /java/erise/.settings/*
 /java/erise/temp/
 /java/erise/test-output/
-java/erise/src/core/core.iml
+/java/erise/src/core/core.iml
