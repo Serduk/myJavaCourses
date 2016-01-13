@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="AiamATest" duration-ms="16" started-at="2016-01-12T17:10:16Z" finished-at="2016-01-12T17:10:16Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="16" started-at="2016-01-12T17:10:16Z" finished-at="2016-01-12T17:10:16Z">
+      <class name="AiamATest">
+        <test-method status="PASS" signature="test()[pri:0, instance:AiamATest@1888ff2c]" name="test" duration-ms="5" started-at="2016-01-12T17:10:16Z" finished-at="2016-01-12T17:10:16Z">
+        </test-method>
+      </class>
+    </test>
+  </suite>
+</testng-results>
