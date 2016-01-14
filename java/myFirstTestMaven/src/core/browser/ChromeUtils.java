@@ -30,6 +30,8 @@ public class ChromeUtils {
      * Get ChromeBrowser
      * @return chromeBrowser
      */
+
+//    update String UserAgent to another. WEB MOB start or something else
     public WebDriver getBrowser(String userAgent){
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--user-agent=" + userAgent);
