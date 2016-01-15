@@ -92,10 +92,11 @@ public class BaseIndexPage extends AbstractWebPage {
     /***Correct Fill Registration Data***/
     public void fillRegistrationDataMans(String location){
         System.out.println("Fill registration fields");
-        fillLocation(location);
+        goToSignUpPage();
         daySelector().selectByIndex(userData.numForDataBornDrop);
         monthSelector().selectByIndex(userData.numForDataBornDrop);
         yearSelector().selectByIndex(userData.numForDataBornDrop);
+        fillLocation(location);
         emailField.sendKeys(userData.getUiniqueUserEmail());
         passwordField.sendKeys(constans.TEST_PASSWORD_FOR_REG_ON_SITES);
 
@@ -105,7 +106,7 @@ public class BaseIndexPage extends AbstractWebPage {
         postCodeField.sendKeys(location);
     }
 
-    /**Submit Registration by Submit Form !clickOnBatton     */
+    /**Submit Registration by Submit Form !clickOnBatton*/
     public void submitRegForm(){
         submitForm.submit();
     }
