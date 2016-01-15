@@ -11,6 +11,7 @@
 /java/myFirstTestMaven/.idea
 /java/myFirstTestMaven/target/
 /java/myFirstTestMaven/myTestMaven.iml
+
 /java/myFirstTestMaven/bin/
 /java/myFirstTestMaven/target/
 /java/myFirstTestMaven/runconfigs/*.xml
@@ -20,6 +21,8 @@
 /java/myFirstTestMaven/temp/
 /java/myFirstTestMaven/test-output/
 /java/myFirstTestMaven/src/core/core.iml
+/java/myFirstTestMaven/myFirstTestMaven.iml
+
 
 /java/erise/bin/
 /java/erise/target/

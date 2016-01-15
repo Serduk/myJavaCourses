@@ -1,3 +1,6 @@
+package test.java;
+
+import core.browser.ChromeUtils;
 import core.browser.FireFoxUtils;
 import dating.mob.pages.BaseIndexPage;
 import org.openqa.selenium.WebDriver;
@@ -14,13 +17,13 @@ public class mobRegTest {
 
     @BeforeTest
     public void setup(){
-        FireFoxUtils fireFoxBrowser = new FireFoxUtils();
-        this.driver = fireFoxBrowser.getDriver();
+        ChromeUtils chromeBrowser = new ChromeUtils("USA");
+        this.driver = chromeBrowser.getMobileBrowser();
     }
 
     @Test
     public void regTest(){
-        driver.get("https://naughtyavenue.com");
+        driver.get("https://m.naughtyavenue.com");
         BaseIndexPage index = new BaseIndexPage(this.driver);
         index.fillRegistrationDataMans("London");
     }

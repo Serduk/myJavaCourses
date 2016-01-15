@@ -12,7 +12,7 @@ public class UserData {
     public int numForDataBornDrop;
 
     public String getUiniqueUserEmail(){
-        String uniqUserEmail = emailConstr + randomUtils.getUiqTime() + emaildomainGmail;
+        String uniqUserEmail = emailConstr + "+" + randomUtils.getUiqTime() + emaildomainGmail;
         return uniqUserEmail;
     }
 }

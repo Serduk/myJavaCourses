@@ -1,65 +1,95 @@
 package core.browser;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by sergey on 1/14/16.
+ * Created by dmitriy on 15.01.2016.
+ *
  */
 public class ChromeUtils {
-    public WebDriver driver;
+
+    private DesiredCapabilities capabilities;
+    public RemoteWebDriver driver;
+
 
     /**
-     * @method Get browser
-     * @return chromeBrowser
+     * @param location (Type : String, Site Location (ex. USA, GBR, ESP, etc.))
      */
+    public ChromeUtils(String location){
 
-    public ChromeUtils(){
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver_x64");
-        this.driver = new ChromeDriver();
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments(setLanguage(location));
+
+        this.capabilities = DesiredCapabilities.chrome();
+
+
     }
 
-
-
     /**
-     * Get ChromeBrowser
-     * @return chromeBrowser
+     * Browser Chrome;
+     * Platform Web;
+     * @return RemoteWebDriver;
      */
+    public RemoteWebDriver getWebBrowser()
+    {
 
-//    update String UserAgent to another. WEB MOB start or something else
-    public WebDriver getBrowser(String userAgent){
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--user-agent=" + userAgent);
-        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-        capabilities.setCapability(ChromeOptions.CAPABILITY , chromeOptions);
-
-        WebDriver driver = new ChromeDriver(capabilities);
-        driver.manage().window().maximize();
-        return driver;
+        this.driver = new RemoteWebDriver(this.capabilities);
+        this.driver.manage().window().maximize();
+        return this.driver;
     }
 
-
     /**
-     * Get MobileChrome
-     * @return
+     * Browser Chrome;
+     * Platform Mob;
+     * @return RemoteWebDriver;
      */
-    public WebDriver getMobileBrowser(){
-        //Map for mobile emulation
+    public RemoteWebDriver getMobileBrowser(){
+
         Map<String, String> mobileEmulation = new HashMap<String, String>();
         mobileEmulation.put("deviceName", "Google Nexus 5");
 
-        //Map for option
         Map<String, Object> chromeOptions = new HashMap<String, Object>();
         chromeOptions.put("mobileEmulation", mobileEmulation);
-        String [] argsLang = {"--lang=es"};
-        chromeOptions.put("args", argsLang);
-        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-        WebDriver driver = new ChromeDriver(capabilities);
-        return driver;
+
+        this.capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+        this.driver = new ChromeDriver(this.capabilities);
+
+        return this.driver;
+    }
+
+    /**
+     * @param language String;
+     * @return language String;
+     */
+    private String setLanguage(String language) {
+
+        switch (language)
+        {
+            case "USA":  language = "en-us";   break;
+            case "AUS":  language = "en-au";   break;
+            case "NZL":  language = "nl";      break;
+            case "IRL":  language = "ga";      break;
+            case "CAN":  language = "en-ca";   break;
+            case "FRA":  language = "fr";      break;
+            case "SPA":  language = "es";      break;
+            case "ESP":  language = "es";      break;
+            case "NOR":  language = "no";      break;
+            case "DNK":  language = "da";      break;
+            case "ITA":  language = "it";      break;
+            case "SWE":  language = "sv";      break;
+            case "SWI":  language = "de-ch";   break;
+            case "GER":  language = "de";      break;
+            default: language = "en";      break;
+        }
+        return language;
     }
 }
