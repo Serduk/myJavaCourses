@@ -8,6 +8,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by dmitriy on 15.01.2016.
@@ -15,6 +16,7 @@ import java.util.Map;
  */
 public class ChromeUtils {
 
+    private int wait = 20;
     private DesiredCapabilities capabilities;
     public RemoteWebDriver driver;
 
@@ -22,7 +24,7 @@ public class ChromeUtils {
     /**
      * @param location (Type : String, Site Location (ex. USA, GBR, ESP, etc.))
      */
-    public ChromeUtils(String location){
+    public ChromeUtils(String location, int wait){
 
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver_x64");
 
@@ -30,6 +32,8 @@ public class ChromeUtils {
         options.addArguments(setLanguage(location));
 
         this.capabilities = DesiredCapabilities.chrome();
+
+        this.wait = wait;
 
 
     }
@@ -44,6 +48,7 @@ public class ChromeUtils {
 
         this.driver = new RemoteWebDriver(this.capabilities);
         this.driver.manage().window().maximize();
+        this.driver.manage().timeouts().implicitlyWait(this.wait, TimeUnit.SECONDS);
         return this.driver;
     }
 
@@ -62,7 +67,7 @@ public class ChromeUtils {
 
         this.capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
         this.driver = new ChromeDriver(this.capabilities);
-
+        this.driver.manage().timeouts().implicitlyWait(this.wait, TimeUnit.SECONDS);
         return this.driver;
     }
 

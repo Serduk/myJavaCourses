@@ -90,15 +90,18 @@ public class BaseIndexPage extends AbstractWebPage {
     }
 
     /***Correct Fill Registration Data***/
-    public void fillRegistrationDataMans(String location){
+    public void fillRegistrationDataMans(String location) {
         System.out.println("Fill registration fields");
         goToSignUpPage();
-        daySelector().selectByIndex(userData.numForDataBornDrop);
-        monthSelector().selectByIndex(userData.numForDataBornDrop);
-        yearSelector().selectByIndex(userData.numForDataBornDrop);
+        daySelector().selectByValue("5");
+        monthSelector().selectByValue("05");
+        yearSelector().selectByValue("1990");
         fillLocation(location);
         emailField.sendKeys(userData.getUiniqueUserEmail());
         passwordField.sendKeys(constans.TEST_PASSWORD_FOR_REG_ON_SITES);
+//        $this->driver->executeScript("$('.ac_results').hide()");
+//        $('.b-location-autocomplete').show();
+
 
     }
 
