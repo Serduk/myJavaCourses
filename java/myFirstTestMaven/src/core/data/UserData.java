@@ -1,4 +1,4 @@
-package core.Data;
+package core.data;
 
 import core.random.RandomUtils;
 
