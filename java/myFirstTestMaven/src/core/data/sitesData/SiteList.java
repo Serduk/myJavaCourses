@@ -1,8 +1,5 @@
 package core.data.sitesData;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by sergey on 1/20/16.
  */
@@ -15,7 +12,7 @@ public class SiteList {
     String domainRelCam = ".wc-rel.hwtool.net";
 
     /** SiteList in array all dating */
-    String[] sitesArrayDating = {
+    public String[] sitesArrayDating = {
                 "naughtyavenue",
                 "mylustywish",
                 "mynaughtydreams",
@@ -41,9 +38,33 @@ public class SiteList {
     };
 
     /** SiteList in array all Cams */
-    String[] siteListCam = {
+    public String[] siteListCam = {
             "firecams"
     };
+
+
+    /** getters for siteList/Domain/etc */
+    public String getWebVersion(){
+        return webVersion;
+    }
+    public String getMobVersion(){
+        return mobVersion;
+    }
+    public String getDomainLive(){
+        return domainLive;
+    }
+    public String getDomainRelDating(){
+        return domainRelDating;
+    }
+    public String getDomainRelCam(){
+        return domainRelCam;
+    }
+    public String getSitesArrayDating(int i){
+        return sitesArrayDating[i];
+    }
+    public String getSiteListCam(int i){
+        return siteListCam[i];
+    }
 //
 //    List<String> sitesListDating = new ArrayList<String>();
 //    sitesListDating.add()
