@@ -1,6 +1,6 @@
 package dating.mob.pages;
 
-import core.Data.UserData;
+import core.data.UserData;
 import core.browser.AbstractWebPage;
 import core.constans.Constans;
 import org.openqa.selenium.WebDriver;

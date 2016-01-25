@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by dmitriy on 15.01.2016.
+ * Created by sergey on 15.01.2016.
  *
  */
 public class ChromeUtils {
