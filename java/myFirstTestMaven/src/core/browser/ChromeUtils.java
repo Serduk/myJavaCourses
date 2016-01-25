@@ -41,7 +41,7 @@ public class ChromeUtils {
     /**
      * Browser Chrome;
      * Platform Web;
-     * @return RemoteWebDriver;
+     * @return RemoteWebDriver;git b
      */
     public RemoteWebDriver getWebBrowser()
     {
