@@ -3,6 +3,7 @@ package dating.mob.pages;
 import core.data.UserData;
 import core.browser.AbstractWebPage;
 import core.constans.Constans;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -99,6 +100,11 @@ public class BaseIndexPage extends AbstractWebPage {
         fillLocation(location);
         emailField.sendKeys(userData.getUiniqueUserEmail());
         passwordField.sendKeys(constans.TEST_PASSWORD_FOR_REG_ON_SITES);
+
+        if (driver instanceof JavascriptExecutor) {
+            ((JavascriptExecutor) driver)
+                    .executeScript("$('.b-location-autocomplete').hide();");
+        }
 //        $this->driver->executeScript("$('.ac_results').hide()");
 //        $('.b-location-autocomplete').show();
 
@@ -107,10 +113,18 @@ public class BaseIndexPage extends AbstractWebPage {
 
     public void fillLocation(String location) {
         postCodeField.sendKeys(location);
+        if (driver instanceof JavascriptExecutor) {
+            ((JavascriptExecutor) driver)
+                    .executeScript("$('.b-location-autocomplete').hide();");
+        }
     }
 
     /**Submit Registration by Submit Form !clickOnBatton*/
     public void submitRegForm(){
         submitForm.submit();
+    }
+
+    public String getUserEmail() {
+        return emailField.getAttribute("value");
     }
 }
