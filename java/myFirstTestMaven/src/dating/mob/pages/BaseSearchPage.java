@@ -1,6 +1,7 @@
 package dating.mob.pages;
 
 import core.browser.AbstractWebPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -53,7 +54,7 @@ public class BaseSearchPage extends AbstractWebPage{
     public List<WebElement> userListInSearch;
 
 //    @FindBy(xpath = ".//*[@class='srh-user cf']")
-//    public WebElement userListInSearc;
+//    public WebElement userListInSearch;
 
     //SendMessageButton
     @FindBy(xpath = ".//*[@class='usr-action message']")
@@ -64,4 +65,9 @@ public class BaseSearchPage extends AbstractWebPage{
 
     @FindBy(xpath = ".//*[@class='usr-action favourite']")
     public WebElement addToFriend;
+
+    public void clickOnMessageBtrn(int userNum) {
+        WebElement messageBtnclick = userListInSearch.get(userNum).findElement(By.xpath(".//*[@class='usr-action message']"));
+        messageBtnclick.click();
+    }
 }

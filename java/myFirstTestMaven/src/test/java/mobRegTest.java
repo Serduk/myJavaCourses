@@ -9,6 +9,7 @@ import dating.mob.pages.BaseIndexPage;
 import dating.mob.pages.BaseSearchPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -27,7 +28,7 @@ public class mobRegTest {
     String userEmail;
 
 
-    @BeforeTest
+    @BeforeClass
     public void setup(){
         ChromeUtils chromeBrowser = new ChromeUtils("USA", 20);
         this.driver = chromeBrowser.getMobileBrowser();
@@ -46,9 +47,17 @@ public class mobRegTest {
         funnel.funnelSkip();
         System.out.println("User Email is: " + userEmail);
 
-        System.out.println(searchPage.userListInSearch.size());
-
-
-
+        searchPage.clickOnMessageBtrn(1);
     }
+
+
+//    @Test
+//    public void goToMessenger() {
+//        BaseFunnelPage funnel = new BaseFunnelPage(this.driver);
+//        BaseSearchPage searchPage = new BaseSearchPage(this.driver);
+//        funnel.funnelSkip();
+//        System.out.println("User Email is: " + userEmail);
+//
+//        searchPage.clickOnMessageBtrn(1);
+//    }
 }
