@@ -11,4 +11,9 @@ public class RandomUtils {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
         return timeStamp;
     }
+
+    public int getUniqNumWithMaxParam(int max) {
+        int randomWithMax =(int) (Math.random() * max);
+        return randomWithMax;
+    }
 }

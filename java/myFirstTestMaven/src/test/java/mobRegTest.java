@@ -1,16 +1,20 @@
 package test.java;
 
+import core.data.StaticDataWithTechnicalTask;
 import core.data.TrafficSourse;
 import core.data.sitesData.SiteList;
 import core.browser.ChromeUtils;
+import core.locations.LocationData;
 import core.screenShotUtils.ScreenShotUtils;
 import dating.mob.pages.BaseFunnelPage;
 import dating.mob.pages.BaseIndexPage;
+import dating.mob.pages.BasePaymentPage;
 import dating.mob.pages.BaseSearchPage;
-import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.html5.Location;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -24,8 +28,11 @@ public class mobRegTest {
     ScreenShotUtils takeScreen = new ScreenShotUtils();
     SiteList siteList = new SiteList();
     TrafficSourse trafficSourse = new TrafficSourse();
+    StaticDataWithTechnicalTask staticData = new StaticDataWithTechnicalTask();
+    LocationData[] locationDatas = LocationData.values();
 
     String userEmail;
+    int countUserInSearch;
 
 
     @BeforeClass
@@ -35,29 +42,60 @@ public class mobRegTest {
     }
 
     @Test
-    public void regTest() throws IOException {
+    public void addCookie() {
+        driver.get(siteList.getMobVersion() + siteList.getSitesArrayDating(0) + siteList.getDomainLive() + trafficSourse.getToSetCookie());
+        driver.manage().addCookie(new Cookie("ip_address", locationDatas[2].getIp()));
+
+    }
+
+    @Test (dependsOnMethods = {"addCookie"})//(priority = 1)
+    public void regTest() {
         driver.get(siteList.getMobVersion() + siteList.getSitesArrayDating(0) + siteList.getDomainLive() + trafficSourse.getAffSourcre());
         BaseIndexPage index = new BaseIndexPage(this.driver);
-        BaseFunnelPage funnel = new BaseFunnelPage(this.driver);
-        BaseSearchPage searchPage = new BaseSearchPage(this.driver);
         index.fillRegistrationDataMans("London");
         userEmail = index.getUserEmail();
         index.submitRegForm();
-//        takeScreen.getScreenShot(driver);
-        funnel.funnelSkip();
         System.out.println("User Email is: " + userEmail);
-
-        searchPage.clickOnMessageBtrn(1);
+//        takeScreen.getScreenShot(driver);
     }
 
 
-//    @Test
-//    public void goToMessenger() {
-//        BaseFunnelPage funnel = new BaseFunnelPage(this.driver);
-//        BaseSearchPage searchPage = new BaseSearchPage(this.driver);
-//        funnel.funnelSkip();
-//        System.out.println("User Email is: " + userEmail);
+    @Test(dependsOnMethods = {"regTest"})
+    public void skipFunnel() {
+        BaseFunnelPage funnel = new BaseFunnelPage(this.driver);
+        funnel.funnelSkip();
+    }
+
+    /**
+     * Check count users in search
+     * */
+    @Test(dependsOnMethods = {"skipFunnel"})
+    public void checkSearch() {
+        BaseSearchPage searchPage = new BaseSearchPage(this.driver);
+        countUserInSearch = searchPage.userListInSearch.size();
+        System.out.println(countUserInSearch);
+        Assert.assertEquals(countUserInSearch, staticData.PROFILES_IN_SEARCH_FOR_FREE_USER);
+    }
+
+    /**
+     * TestUser send 5free message to diff profile
+     * */
+    @Test(dependsOnMethods = {"checkSearch"})
+    public void checkFiveFreeMessage(){
+        BaseSearchPage searchPage = new BaseSearchPage(this.driver);
+        searchPage.sendFiveFreeMessageDiffUsers(staticData.getGreetings());
+    }
+
+    @Test(dependsOnMethods = {"checkFiveFreeMessage"})
+    public void checkRedirectoToPPWithSixMessage(){
+        BaseSearchPage searchPage = new BaseSearchPage(this.driver);
+        BasePaymentPage paymentPage = new BasePaymentPage(this.driver);
+        searchPage.writeMessage(10, staticData.getGreetings());
+        Assert.assertTrue(paymentPage.paymentDataForm.isDisplayed());
+    }
+
+//    @Test(dependsOnMethods = {"checkSearch"})
+//    public void checkAddToFriend() {
 //
-//        searchPage.clickOnMessageBtrn(1);
 //    }
 }
