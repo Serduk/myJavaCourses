@@ -1,6 +1,7 @@
 package dating.mob.pages;
 
 import core.browser.AbstractWebPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -52,16 +53,92 @@ public class BaseSearchPage extends AbstractWebPage{
     @FindBy(xpath = ".//*[@class='srh-user cf']")
     public List<WebElement> userListInSearch;
 
-//    @FindBy(xpath = ".//*[@class='srh-user cf']")
-//    public WebElement userListInSearc;
 
-    //SendMessageButton
-    @FindBy(xpath = ".//*[@class='usr-action message']")
-    public WebElement messageBtn;
+    WebElement messageBtn;
+    WebElement winkBtn;
+    WebElement addToFriendBtn;
 
-    @FindBy(xpath = ".//*[@class='usr-action wink']")
-    public WebElement winkBtn;
 
-    @FindBy(xpath = ".//*[@class='usr-action favourite']")
-    public WebElement addToFriend;
+    /**
+     * Describe Element on Messenger Menu
+     * */
+    @FindBy(xpath = ".//*[@id='messengerInput']")
+    WebElement inputForSendMessage;
+
+    @FindBy(xpath = ".//*[@id='messengerSend']")
+    WebElement messengerSendBtn;
+
+    @FindBy(xpath = ".//*[@data-userlogin]")
+    WebElement anotherProfileName;
+
+
+
+
+
+
+    /*****************ALL METHODS********************/
+
+    /**
+     * @Methods for add to sendMessageBtnClick
+     */
+    public void clickOnMessageBtn(int userNum) {
+        messageBtn = userListInSearch.get(userNum).findElement(By.xpath(".//*[@class='usr-action message']"));
+        messageBtn.click();
+    }
+
+    /**
+     * @Method wink someProfile
+     * */
+    public void clickOnWinkBtn(int userNum) {
+        winkBtn = userListInSearch.get(userNum).findElement(By.xpath(".//*[@class='usr-action wink']"));
+        winkBtn.click();
+    }
+
+
+    /**
+    * @Method addToFriend
+     * */
+    public void clickOnAddToFriendBtn(int userNum) {
+        addToFriendBtn = userListInSearch.get(userNum).findElement(By.xpath(".//*[@class='usr-action favourite']"));
+        addToFriendBtn.click();
+    }
+
+
+    /************ METHODS IN MESSENGER***********/
+
+    /**
+    * @Method getName companion in chat
+    * */
+    public String getNameCompanion() {
+        String name = anotherProfileName.getText();
+        return name;
+    }
+
+    /**
+     * @Method Send one free message to 1 user and go back
+     * */
+    //End condition to check model is dont sent any message? if no -> send message, if yes -> open another profile
+    public void sendMessageToOneUser(int userNum, String someMessage){
+        clickOnMessageBtn(userNum);
+        inputForSendMessage.sendKeys(someMessage + " " + getNameCompanion() + "!");
+        messengerSendBtn.click();
+        driver.navigate().back();
+    }
+
+    public void writeMessage(int userNum, String someMessage) {
+        clickOnMessageBtn(userNum);
+//        inputForSendMessage.sendKeys(someMessage + " " + getNameCompanion() + "!");
+//        messengerSendBtn.click();
+    }
+
+    /**
+     * @Method send 5 free message
+     * */
+    public void sendFiveFreeMessageDiffUsers(String someMessage) {
+        int userNum = 0;
+        for (int messageAlreadySent = 0; messageAlreadySent < 5; messageAlreadySent++) {
+            sendMessageToOneUser(userNum, someMessage);
+            userNum++;
+        }
+    }
 }
