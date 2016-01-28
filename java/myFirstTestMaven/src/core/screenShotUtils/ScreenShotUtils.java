@@ -18,10 +18,10 @@ public class ScreenShotUtils {
 
     String userHome = System.getProperty("user.home");
     String saveScreenTo = userHome + "/Pictures/testScreenShots/screenshot";
-    String formatFroScreen = ".png";
+    String formatFoScreen = ".png";
 
     public void getScreenShot(WebDriver driver) throws IOException {
         File screenShotsaveTo = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(screenShotsaveTo, new File(saveScreenTo + random.getUiqTime() + formatFroScreen));
+        FileUtils.copyFile(screenShotsaveTo, new File(saveScreenTo + random.getUiqTime() + formatFoScreen));
     }
 }
