@@ -1,5 +1,6 @@
 package test.java;
 
+import core.csvUtils.WorkWithCSV;
 import core.data.StaticDataWithTechnicalTask;
 import core.data.TrafficSourse;
 import core.data.sitesData.SiteList;
@@ -12,7 +13,6 @@ import dating.mob.pages.BasePaymentPage;
 import dating.mob.pages.BaseSearchPage;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.html5.Location;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -30,6 +30,8 @@ public class mobRegTest {
     TrafficSourse trafficSourse = new TrafficSourse();
     StaticDataWithTechnicalTask staticData = new StaticDataWithTechnicalTask();
     LocationData[] locationDatas = LocationData.values();
+    WorkWithCSV workWithCSV = new WorkWithCSV();
+
 
     String userEmail;
     int countUserInSearch;
@@ -48,7 +50,7 @@ public class mobRegTest {
 
     }
 
-    @Test (dependsOnMethods = {"addCookie"})//(priority = 1)
+    @Test(dependsOnMethods = {"addCookie"})//(priority = 1)
     public void regTest() {
         driver.get(siteList.getMobVersion() + siteList.getSitesArrayDating(0) + siteList.getDomainLive() + trafficSourse.getAffSourcre());
         BaseIndexPage index = new BaseIndexPage(this.driver);
@@ -94,8 +96,10 @@ public class mobRegTest {
         Assert.assertTrue(paymentPage.paymentDataForm.isDisplayed());
     }
 
-//    @Test(dependsOnMethods = {"checkSearch"})
-//    public void checkAddToFriend() {
-//
-//    }
+    @Test(dependsOnMethods = {"regTest"})
+    public void saveDataToCSV(){
+
+        workWithCSV.saveInCSV(userEmail);
+    }
+
 }
