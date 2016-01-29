@@ -127,4 +127,7 @@ public class BaseIndexPage extends AbstractWebPage {
     public String getUserEmail() {
         return emailField.getAttribute("value");
     }
+    public String getUserPassword() {
+        return passwordField.getAttribute("value");
+    }
 }
