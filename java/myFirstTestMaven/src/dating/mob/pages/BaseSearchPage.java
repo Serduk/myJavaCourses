@@ -9,6 +9,10 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 /**
+ * @TODO Describe left menu; notificator; header; footer; searchSettings;
+ * */
+
+/**
  * Created by sergey on 1/25/16.
  */
 public class BaseSearchPage extends AbstractWebPage{
@@ -17,6 +21,7 @@ public class BaseSearchPage extends AbstractWebPage{
     }
 
     /**
+     * @Elements in search
      * Describe all elements on page
      */
 
@@ -60,6 +65,7 @@ public class BaseSearchPage extends AbstractWebPage{
 
 
     /**
+     * @Elements in messenger
      * Describe Element on Messenger Menu
      * */
     @FindBy(xpath = ".//*[@id='messengerInput']")
@@ -71,6 +77,16 @@ public class BaseSearchPage extends AbstractWebPage{
     @FindBy(xpath = ".//*[@data-userlogin]")
     WebElement anotherProfileName;
 
+
+    /**
+     * @Elements in left menu
+     * Describe all elements in leftMenu
+     * */
+
+    /**
+     * @Elements in Search setting (rightmenu)
+     * Describe all elements in rightMenuSearch Settings
+     * */
 
 
 

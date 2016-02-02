@@ -17,6 +17,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 
 /**
  * Created by sergey on 1/13/16.
@@ -117,8 +119,9 @@ public class mobRegTest {
 //    }
 
     @Test(dependsOnMethods = {"regTest"})
-    public void saveDataToCSV(){
+    public void saveDataToCSV() throws IOException {
 
         workWithCSV.saveInCSV(userEmail, userPassword, shortID);
+        workWithCSV.getEmailColumm();
     }
 }
