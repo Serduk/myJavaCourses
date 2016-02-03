@@ -18,6 +18,9 @@ public class WorkWithCSV{
     String formatForFile = ".csv";
     String saveToCSV = saveFile + randomUtils.getUiqTime() + formatForFile;
 
+    String tesDataReadFileName = "testData";
+    String testDataCSV = userHome + "/Pictures/testScreenShots/" + tesDataReadFileName + formatForFile;
+
 
     /**
      * @Method save in CSV File
@@ -52,40 +55,6 @@ public class WorkWithCSV{
     }
 
 
-
-
-    /**
-     * @Method reading CSV File
-     * */
-//    public void readFromCSV() throws IOException {
-//        String getCsvFile = saveToCSV;
-//        BufferedReader bufferedReader = null;
-//        String line = "";
-//        String csvSplitBy = ",";
-//
-//        try {
-//            bufferedReader = new BufferedReader(new FileReader(getCsvFile));
-//            while ((line = bufferedReader.readLine()) != null) {
-//                //use comma as separator
-//                String[] email = line.split(csvSplitBy);
-//            }
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } finally {
-//            if(bufferedReader != null) {
-//                try {
-//                    bufferedReader.close();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }
-//
-//        System.out.println("Done");
-//    }
-
     public String getEmailColumm() throws IOException {
         File file = new File(saveToCSV);
         List<String> lines = Files.readAllLines(file.toPath(),
@@ -94,6 +63,18 @@ public class WorkWithCSV{
             String[] array = line.split(",");
 //            System.out.println(array[0]);
 //            System.out.println(lines.get(0));
+            return array[0];
+        }
+        return lines.get(0);
+    }
+
+    public String getTestData() throws IOException {
+        File file = new File(testDataCSV);
+
+        List<String> lines = Files.readAllLines(file.toPath(),
+                StandardCharsets.UTF_8);
+        for (String line : lines) {
+            String[] array = line.split(",");
             return array[0];
         }
         return lines.get(0);

@@ -14,7 +14,9 @@ import dating.mob.pages.BaseSearchPage;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -66,6 +68,11 @@ public class mobRegTest {
         this.index = new BaseIndexPage(this.driver);
         this.searchPage = new BaseSearchPage(this.driver);
         this.paymentPage = new BasePaymentPage(this.driver);
+    }
+
+    @BeforeMethod
+    public void refreshPage(){
+        driver.navigate().refresh();
     }
 
 
@@ -123,5 +130,10 @@ public class mobRegTest {
 
         workWithCSV.saveInCSV(userEmail, userPassword, shortID);
         workWithCSV.getEmailColumm();
+    }
+
+    @AfterClass
+    public void closeBrowser() {
+        driver.quit();
     }
 }
