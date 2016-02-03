@@ -31,7 +31,7 @@ public class BaseMyAccountPage extends AbstractWebPage{
     /*Change language dropBox*/
     @FindBy(xpath = ".//*[@id='profileLanguageSelect']")
     WebElement changeLanguageSettingsDrop;
-    public Select languageSelector(){
+    Select languageSelector(){
         return new Select(changeLanguageSettingsDrop);
     }
 
@@ -45,7 +45,7 @@ public class BaseMyAccountPage extends AbstractWebPage{
     public WebElement emailSettingsBtn;
 
     @FindBy(xpath = ".//*[@href='/site/logout']")
-    public WebElement logoutBtn;
+    public WebElement logOutBtn;
 
 
 
@@ -59,4 +59,8 @@ public class BaseMyAccountPage extends AbstractWebPage{
      * @Methods
      * Describe all methods
      * */
+
+    public void setLanguageFromDrom(String language) {
+        languageSelector().selectByValue(language);
+    }
 }
