@@ -2,32 +2,32 @@
 <testng-results skipped="7" failed="0" total="7" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Command line suite" duration-ms="36" started-at="2016-02-04T18:28:18Z" finished-at="2016-02-04T18:28:18Z">
+  <suite name="Command line suite" duration-ms="61" started-at="2016-02-04T19:01:52Z" finished-at="2016-02-04T19:01:52Z">
     <groups>
     </groups>
-    <test name="Command line test" duration-ms="36" started-at="2016-02-04T18:28:18Z" finished-at="2016-02-04T18:28:18Z">
+    <test name="Command line test" duration-ms="61" started-at="2016-02-04T19:01:52Z" finished-at="2016-02-04T19:01:52Z">
       <class name="test.java.mobRegTest">
-        <test-method status="SKIP" signature="setup()[pri:0, instance:test.java.mobRegTest@21bcffb5]" name="setup" is-config="true" duration-ms="0" started-at="2016-02-04T18:28:18Z" finished-at="2016-02-04T18:28:18Z">
+        <test-method status="SKIP" signature="setup()[pri:0, instance:test.java.mobRegTest@5ebec15]" name="setup" is-config="true" duration-ms="0" started-at="2016-02-04T19:01:52Z" finished-at="2016-02-04T19:01:52Z">
         </test-method>
-        <test-method status="SKIP" signature="refreshPage()[pri:0, instance:test.java.mobRegTest@21bcffb5]" name="refreshPage" is-config="true" duration-ms="0" started-at="2016-02-04T18:28:18Z" finished-at="2016-02-04T18:28:18Z">
+        <test-method status="SKIP" signature="refreshPage()[pri:0, instance:test.java.mobRegTest@5ebec15]" name="refreshPage" is-config="true" duration-ms="0" started-at="2016-02-04T19:01:52Z" finished-at="2016-02-04T19:01:52Z">
         </test-method>
-        <test-method status="SKIP" signature="addCookie()[pri:0, instance:test.java.mobRegTest@21bcffb5]" name="addCookie" duration-ms="1" started-at="2016-02-04T18:28:18Z" finished-at="2016-02-04T18:28:18Z">
+        <test-method status="SKIP" signature="addCookie()[pri:0, instance:test.java.mobRegTest@5ebec15]" name="addCookie" duration-ms="0" started-at="2016-02-04T19:01:52Z" finished-at="2016-02-04T19:01:52Z">
         </test-method>
-        <test-method status="SKIP" signature="regTest()[pri:0, instance:test.java.mobRegTest@21bcffb5]" name="regTest" duration-ms="1" started-at="2016-02-04T18:28:18Z" depends-on-methods="test.java.mobRegTest.addCookie" finished-at="2016-02-04T18:28:18Z">
+        <test-method status="SKIP" signature="regTest()[pri:0, instance:test.java.mobRegTest@5ebec15]" name="regTest" duration-ms="3" started-at="2016-02-04T19:01:52Z" depends-on-methods="test.java.mobRegTest.addCookie" finished-at="2016-02-04T19:01:52Z">
         </test-method>
-        <test-method status="SKIP" signature="saveDataToCSV()[pri:0, instance:test.java.mobRegTest@21bcffb5]" name="saveDataToCSV" duration-ms="1" started-at="2016-02-04T18:28:18Z" depends-on-methods="test.java.mobRegTest.regTest" finished-at="2016-02-04T18:28:18Z">
+        <test-method status="SKIP" signature="saveDataToCSV()[pri:0, instance:test.java.mobRegTest@5ebec15]" name="saveDataToCSV" duration-ms="0" started-at="2016-02-04T19:01:52Z" depends-on-methods="test.java.mobRegTest.regTest" finished-at="2016-02-04T19:01:52Z">
         </test-method>
-        <test-method status="SKIP" signature="skipFunnel()[pri:0, instance:test.java.mobRegTest@21bcffb5]" name="skipFunnel" duration-ms="0" started-at="2016-02-04T18:28:18Z" depends-on-methods="test.java.mobRegTest.regTest" finished-at="2016-02-04T18:28:18Z">
+        <test-method status="SKIP" signature="skipFunnel()[pri:0, instance:test.java.mobRegTest@5ebec15]" name="skipFunnel" duration-ms="0" started-at="2016-02-04T19:01:52Z" depends-on-methods="test.java.mobRegTest.regTest" finished-at="2016-02-04T19:01:52Z">
         </test-method>
-        <test-method status="SKIP" signature="checkSearch()[pri:0, instance:test.java.mobRegTest@21bcffb5]" name="checkSearch" duration-ms="0" started-at="2016-02-04T18:28:18Z" depends-on-methods="test.java.mobRegTest.skipFunnel" finished-at="2016-02-04T18:28:18Z">
+        <test-method status="SKIP" signature="checkSearch()[pri:0, instance:test.java.mobRegTest@5ebec15]" name="checkSearch" duration-ms="0" started-at="2016-02-04T19:01:52Z" depends-on-methods="test.java.mobRegTest.skipFunnel" finished-at="2016-02-04T19:01:52Z">
         </test-method>
-        <test-method status="SKIP" signature="checkFiveFreeMessage()[pri:0, instance:test.java.mobRegTest@21bcffb5]" name="checkFiveFreeMessage" duration-ms="1" started-at="2016-02-04T18:28:18Z" depends-on-methods="test.java.mobRegTest.checkSearch" finished-at="2016-02-04T18:28:18Z">
+        <test-method status="SKIP" signature="checkFiveFreeMessage()[pri:0, instance:test.java.mobRegTest@5ebec15]" name="checkFiveFreeMessage" duration-ms="0" started-at="2016-02-04T19:01:52Z" depends-on-methods="test.java.mobRegTest.checkSearch" finished-at="2016-02-04T19:01:52Z">
         </test-method>
-        <test-method status="SKIP" signature="closeBrowser()[pri:0, instance:test.java.mobRegTest@21bcffb5]" name="closeBrowser" is-config="true" duration-ms="0" started-at="2016-02-04T18:28:18Z" finished-at="2016-02-04T18:28:18Z">
+        <test-method status="SKIP" signature="closeBrowser()[pri:0, instance:test.java.mobRegTest@5ebec15]" name="closeBrowser" is-config="true" duration-ms="0" started-at="2016-02-04T19:01:52Z" finished-at="2016-02-04T19:01:52Z">
         </test-method>
       </class>
       <class name="mobRegTest">
-        <test-method status="FAIL" signature="setup()[pri:0, instance:mobRegTest@5ebec15]" name="setup" is-config="true" duration-ms="0" started-at="2016-02-04T18:28:18Z" finished-at="2016-02-04T18:28:18Z">
+        <test-method status="FAIL" signature="setup()[pri:0, instance:mobRegTest@3d8c7aca]" name="setup" is-config="true" duration-ms="0" started-at="2016-02-04T19:01:52Z" finished-at="2016-02-04T19:01:52Z">
           <exception class="java.lang.NoSuchMethodError">
             <message>
               <![CDATA[core.browser.ChromeUtils: method <init>()V not found]]>
@@ -71,7 +71,7 @@
             </full-stacktrace>
           </exception>
         </test-method>
-        <test-method status="SKIP" signature="regTest()[pri:0, instance:mobRegTest@5ebec15]" name="regTest" duration-ms="0" started-at="2016-02-04T18:28:18Z" finished-at="2016-02-04T18:28:18Z">
+        <test-method status="SKIP" signature="regTest()[pri:0, instance:mobRegTest@3d8c7aca]" name="regTest" duration-ms="0" started-at="2016-02-04T19:01:52Z" finished-at="2016-02-04T19:01:52Z">
         </test-method>
       </class>
     </test>
