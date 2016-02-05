@@ -66,3 +66,7 @@
         </dependency>
     </dependencies>
 </project>
+
+<!--
+        mvn -Dtest=firstTestRun.xml clean test
+-->
