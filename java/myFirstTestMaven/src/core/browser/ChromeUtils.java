@@ -75,6 +75,7 @@ public class ChromeUtils {
      * @param language String;
      * @return language String;
      */
+//    @org.jetbrains.annotations.Contract(pure = true)
     private String setLanguage(String language) {
 
         switch (language)
