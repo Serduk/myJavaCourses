@@ -10,6 +10,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 /**
+ * @TODO describe Login Form; footer;
+ * */
+
+/**
  * Created by sergey on 1/13/16.
  */
 public class BaseIndexPage extends AbstractWebPage {
@@ -46,21 +50,21 @@ public class BaseIndexPage extends AbstractWebPage {
 
     /*Day born*/
     @FindBy(xpath = ".//*[@id='UserForm_day']")
-    public WebElement birthDayDrop;
+    WebElement birthDayDrop;
     public Select daySelector(){
         return new Select(birthDayDrop);
     }
 
     /*Month born*/
     @FindBy(xpath = ".//*[@id='UserForm_month']")
-    public WebElement birthMonthDrop;
+    WebElement birthMonthDrop;
     public Select monthSelector(){
         return new Select(birthMonthDrop);
     }
 
     /*Year Born*/
     @FindBy(xpath = ".//*[@id='UserForm_year']")
-    public WebElement birthYearDrop;
+    WebElement birthYearDrop;
     public Select yearSelector(){
         return new Select(birthYearDrop);
     }
@@ -126,5 +130,8 @@ public class BaseIndexPage extends AbstractWebPage {
 
     public String getUserEmail() {
         return emailField.getAttribute("value");
+    }
+    public String getUserPassword() {
+        return passwordField.getAttribute("value");
     }
 }

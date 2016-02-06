@@ -14,18 +14,17 @@ import dating.mob.pages.BaseSearchPage;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-
 /**
  * Created by sergey on 1/13/16.
  */
-public class mobRegTest {
+public class mobRegWithDataProvider {
 
     /**
      * Initiation class for tests
@@ -52,8 +51,15 @@ public class mobRegTest {
     String userEmail;
     int countUserInSearch;
     String currentSiteTest;
-    String userPassword = "";
-    String shortID = "";
+
+
+    @DataProvider(name = "dp")
+    public Object[][] parseLocaleData(){
+        return new Object[][]{
+                {"https://m.naughtyavenue.com"},
+                {"https://m.mynaughtydreams.com"}
+        };
+    }
 
 
 
@@ -70,25 +76,21 @@ public class mobRegTest {
         this.paymentPage = new BasePaymentPage(this.driver);
     }
 
-    @BeforeMethod
-    public void refreshPage(){
-        driver.navigate().refresh();
-    }
 
-
-    @Test
-    public void addCookie() {
-        driver.get(siteList.getMobVersion() + siteList.getSitesArrayDating(0) + siteList.getDomainLive() + trafficSourse.getToSetCookie());
+    @Test(dataProvider = "dp")
+    public void addCookie(String domain) {
+//        driver.get(siteList.getMobVersion() + siteList.getSitesArrayDating(0) + siteList.getDomainLive() + trafficSourse.getToSetCookie());
+        currentSiteTest = domain;
+        driver.get(currentSiteTest + trafficSourse.getToSetCookie());
         driver.manage().addCookie(new Cookie("ip_address", locationDatas[2].getIp()));
-
     }
 
     @Test(dependsOnMethods = {"addCookie"})//(priority = 1)
     public void regTest() {
-        driver.get(siteList.getMobVersion() + siteList.getSitesArrayDating(0) + siteList.getDomainLive() + trafficSourse.getAffSourcre());
+//        driver.get(siteList.getMobVersion() + siteList.getSitesArrayDating(0) + siteList.getDomainLive() + trafficSourse.getAffSourcre());
+        driver.get(currentSiteTest + trafficSourse.getAffSourcre());
         index.fillRegistrationDataMans("London");
         userEmail = index.getUserEmail();
-        userPassword = index.getUserPassword();
         index.submitRegForm();
         System.out.println("User Email is: " + userEmail);
 //        takeScreen.getScreenShot(driver);
@@ -119,21 +121,9 @@ public class mobRegTest {
         searchPage.sendFiveFreeMessageDiffUsers(staticData.getGreetings());
     }
 
-//    @Test(dependsOnMethods = {"checkFiveFreeMessage"})
-//    public void checkRedirectoToPPWithSixMessage(){
-//        searchPage.writeMessage(10, staticData.getGreetings());
-//        Assert.assertTrue(paymentPage.paymentDataForm.isDisplayed());
+
+//    @Test(dependsOnMethods = {"regTest"})
+//    public void saveDataToCSV(){
+//        workWithCSV.saveInCSV(userEmail);
 //    }
-
-    @Test(dependsOnMethods = {"regTest"})
-    public void saveDataToCSV() throws IOException {
-
-        workWithCSV.saveInCSV(userEmail, userPassword, shortID);
-        workWithCSV.getEmailColumm();
-    }
-
-    @AfterClass
-    public void closeBrowser() {
-        driver.quit();
-    }
 }

@@ -15,4 +15,5 @@ public class UserData {
         String uniqUserEmail = emailConstr + "+" + randomUtils.getUiqTime() + emaildomainGmail;
         return uniqUserEmail;
     }
+
 }

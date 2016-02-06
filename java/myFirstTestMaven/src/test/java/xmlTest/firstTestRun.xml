@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="My test">
+    <test name="FirstTest">
+        <classes>
+            <class name="test.java.mobRegTest" />
+        </classes>
+    </test>
+</suite>
