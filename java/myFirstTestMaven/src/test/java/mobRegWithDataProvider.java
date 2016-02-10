@@ -85,7 +85,7 @@ public class mobRegWithDataProvider {
         driver.manage().addCookie(new Cookie("ip_address", locationDatas[2].getIp()));
     }
 
-    @Test(dependsOnMethods = {"addCookie"})//(priority = 1)
+    @Test(dataProvider = "dp", dependsOnMethods = {"addCookie"})//(priority = 1)
     public void regTest() {
 //        driver.get(siteList.getMobVersion() + siteList.getSitesArrayDating(0) + siteList.getDomainLive() + trafficSourse.getAffSourcre());
         driver.get(currentSiteTest + trafficSourse.getAffSourcre());
@@ -103,27 +103,4 @@ public class mobRegWithDataProvider {
         funnel.funnelSkip();
     }
 
-    /**
-     * Check count users in search
-     * */
-    @Test(dependsOnMethods = {"skipFunnel"})
-    public void checkSearch() {
-        countUserInSearch = searchPage.userListInSearch.size();
-        System.out.println(countUserInSearch);
-        Assert.assertEquals(countUserInSearch, staticData.PROFILES_IN_SEARCH_FOR_FREE_USER);
-    }
-
-    /**
-     * TestUser send 5free message to diff profile
-     * */
-    @Test(dependsOnMethods = {"checkSearch"})
-    public void checkFiveFreeMessage(){
-        searchPage.sendFiveFreeMessageDiffUsers(staticData.getGreetings());
-    }
-
-
-//    @Test(dependsOnMethods = {"regTest"})
-//    public void saveDataToCSV(){
-//        workWithCSV.saveInCSV(userEmail);
-//    }
 }

@@ -25,7 +25,7 @@
                 <configuration>
                     <!--Suite testng xml file to consider for test execution-->
                     <suiteXmlFiles>
-                        <suiteXmlFile>${project.basedir}/test/java/xmlTest/${test}</suiteXmlFile>
+                        <suiteXmlFile>${project.basedir}/runConfigs/${test.xml}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
@@ -71,8 +71,11 @@
 
         <!--
                 mvn -Dtest=mobRegTest clean test
+                mvn -Dtest=mobRegTest -Ddataproviderthreadcount=5 test
                 mvn -Dtest.xml=firstTestRun.xml clean test
                 mvn clean install -U
+
+                <suiteXmlFile>${project.basedir}/runConfigs/${test.xml}</suiteXmlFile>
 
 
  <suiteXmlFile>${project.basedir}/src/test/java/xmlTest/${test}</suiteXmlFile>
@@ -82,4 +85,7 @@
 http://www.vazzolla.com/2013/03/how-to-select-which-testng-suites-to-run-in-maven-surefire-plugin/
 http://automated-testing.info/t/resolved-nastrojka-maven-pod-zagruzku-razlichnyh-naborov-suite-xml/5293/2
 http://testng.org/doc/documentation-main.html
+
+https://habrahabr.ru/post/121234/
+
         -->
