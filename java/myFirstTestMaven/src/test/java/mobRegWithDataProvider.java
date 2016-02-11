@@ -14,12 +14,10 @@ import dating.mob.pages.BaseSearchPage;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by sergey on 1/13/16.
@@ -31,11 +29,10 @@ public class mobRegWithDataProvider {
      * */
     private WebDriver driver;
     ScreenShotUtils takeScreen = new ScreenShotUtils();
-    SiteList siteList = new SiteList();
     TrafficSourse trafficSourse = new TrafficSourse();
     StaticDataWithTechnicalTask staticData = new StaticDataWithTechnicalTask();
     LocationData[] locationDatas = LocationData.values();
-    WorkWithCSV workWithCSV = new WorkWithCSV();
+    SiteList siteList = new SiteList();
 
     /**
      * Initiation pages for tests
@@ -43,6 +40,7 @@ public class mobRegWithDataProvider {
     private BaseIndexPage index;
     private BaseSearchPage searchPage;
     private BasePaymentPage paymentPage;
+    private List<String> userEmails;
 
 
     /**
@@ -56,8 +54,51 @@ public class mobRegWithDataProvider {
     @DataProvider(name = "dp")
     public Object[][] parseLocaleData(){
         return new Object[][]{
-                {"https://m.naughtyavenue.com"},
-                {"https://m.mynaughtydreams.com"}
+                {"naughtyavenue"},
+                {"mylustywish"},
+                {"mynaughtydreams"},
+                {"shagtogether"},
+                {"flinghub"},
+                {"naughtyevents"},
+                {"myfling"},
+                {"hookupsexy"},
+                {"naughtyluck"},
+                {"nastywish"},
+                {"getnaughty"},
+                {"blistyggnu"},
+                {"blivuartignu"},
+                {"blislem"},
+                {"soyezcoquin"},
+                {"flirtnu"},
+                {"flirtanu"},
+                {"finnemeg"},
+                {"rencardsexy"},
+                {"amourfinder"},
+                {"chatdatesex"},
+                {"myflinghub"}
+
+/*                {"https://m.naughtyavenue.com"},
+                {"https://m.mylustywish.com"},
+                {"https://m.mynaughtydreams.com"},
+                {"https://m.shagtogether.com"},
+                {"https://m.flinghub.com"},
+                {"https://m.naughtyevents.com"},
+                {"https://m.myfling.com"},
+                {"https://m.hookupsexy.com"},
+                {"https://m.naughtyluck.com"},
+                {"https://m.nastywish.com"},
+                {"https://m.getnaughty.com"},
+                {"https://m.blistyggnu.com"},
+                {"https://m.blivuartignu.com"},
+                {"https://m.blislem.com"},
+                {"https://m.soyezcoquin.com"},
+                {"https://m.flirtnu.com"},
+                {"https://m.flirtanu.com"},
+                {"https://m.finnemeg.com"},
+                {"https://m.rencardsexy.com"},
+                {"https://m.amourfinder.com"},
+                {"https://m.chatdatesex.com"},
+                {"https://m.myflinghub.com"}*/
         };
     }
 
@@ -73,34 +114,39 @@ public class mobRegWithDataProvider {
          * */
         this.index = new BaseIndexPage(this.driver);
         this.searchPage = new BaseSearchPage(this.driver);
-        this.paymentPage = new BasePaymentPage(this.driver);
     }
 
 
     @Test(dataProvider = "dp")
-    public void addCookie(String domain) {
-//        driver.get(siteList.getMobVersion() + siteList.getSitesArrayDating(0) + siteList.getDomainLive() + trafficSourse.getToSetCookie());
-        currentSiteTest = domain;
-        driver.get(currentSiteTest + trafficSourse.getToSetCookie());
+    public void regUser(String domain) {
+        /**
+         * Add Cookie
+         * */
+        currentSiteTest = domain; //driver.getCurrentUrl();
+        System.out.println(currentSiteTest);
+        driver.get(siteList.getMobVersion() + currentSiteTest + siteList.getDomainLive() + trafficSourse.getToSetCookie());
         driver.manage().addCookie(new Cookie("ip_address", locationDatas[2].getIp()));
-    }
 
-    @Test(dataProvider = "dp", dependsOnMethods = {"addCookie"})//(priority = 1)
-    public void regTest() {
-//        driver.get(siteList.getMobVersion() + siteList.getSitesArrayDating(0) + siteList.getDomainLive() + trafficSourse.getAffSourcre());
-        driver.get(currentSiteTest + trafficSourse.getAffSourcre());
-        index.fillRegistrationDataMans("London");
-        userEmail = index.getUserEmail();
+        /**
+         * Reg User
+         * */
+        driver.get(siteList.getMobVersion() + currentSiteTest + siteList.getDomainLive() + trafficSourse.getAffSourcre());
+        index.goToSignUpPage();
+        index.fillRegistrationDataMans("london");
+
+
+        userEmails.add(index.getUserEmail());
+
+
         index.submitRegForm();
-        System.out.println("User Email is: " + userEmail);
-//        takeScreen.getScreenShot(driver);
     }
 
-
-    @Test(dependsOnMethods = {"regTest"})
-    public void skipFunnel() {
-        BaseFunnelPage funnel = new BaseFunnelPage(this.driver);
-        funnel.funnelSkip();
+    @AfterTest
+    public void getListEmails() {
+        userEmails.size();
+        userEmails.listIterator();
+        userEmails.iterator();
+        driver.quit();
     }
 
 }
