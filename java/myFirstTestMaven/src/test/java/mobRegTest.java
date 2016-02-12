@@ -44,6 +44,7 @@ public class mobRegTest {
     private BaseIndexPage index;
     private BaseSearchPage searchPage;
     private BasePaymentPage paymentPage;
+    private BaseFunnelPage funnel;
 
 
     /**
@@ -66,6 +67,7 @@ public class mobRegTest {
          * Initiation pages for test
          * */
         this.index = new BaseIndexPage(this.driver);
+        this.funnel = new BaseFunnelPage(this.driver);
         this.searchPage = new BaseSearchPage(this.driver);
         this.paymentPage = new BasePaymentPage(this.driver);
     }
@@ -97,7 +99,6 @@ public class mobRegTest {
 
     @Test(dependsOnMethods = {"regTest"})
     public void skipFunnel() {
-        BaseFunnelPage funnel = new BaseFunnelPage(this.driver);
         funnel.funnelSkip();
     }
 
