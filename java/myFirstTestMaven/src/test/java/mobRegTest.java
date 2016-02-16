@@ -25,6 +25,11 @@ import java.io.IOException;
 /**
  * Created by sergey on 1/13/16.
  */
+
+/**
+ * @TODO: add check all redirects to pp at first. login logout etc.
+ * */
+
 public class mobRegTest {
 
     /**
