@@ -1,9 +1,12 @@
 @TODO: mySQLworkBench: Recheck methods save/take from User
-@TODO: Work with CSV (save all users to csv (array) & upload from csv users to another test)
-@TODO: Complete test DataProvider
+@TODO: Work with CSV: upload from csv users to another test)
+@TODO: Complete test DataProvider: location for sites;
 @TODO: Complete test smoke test
 
 @TODO: Parser for change localization for specific site
+@TODO: Save screenshots to FTP
+
+@TODO: Add Method who will work with incoming data from Dima (at first he mast create function)
 
 
 @TODO: Describe all PP page/create methods work with PP

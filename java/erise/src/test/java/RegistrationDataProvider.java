@@ -1,6 +1,7 @@
 package test.java;
 
 import core.browser.ChromeUtils;
+import core.csvUtils.WorkWithCSV;
 import core.data.StaticDataWithTechnicalTask;
 import core.data.TrafficSourse;
 import core.data.sitesData.SiteList;
@@ -13,10 +14,10 @@ import dating.mob.pages.BaseSearchPage;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,6 +33,7 @@ public class RegistrationDataProvider {
     StaticDataWithTechnicalTask staticData = new StaticDataWithTechnicalTask();
     LocationData[] locationDatas = LocationData.values();
     SiteList siteList = new SiteList();
+    WorkWithCSV workWithCSV = new WorkWithCSV();
 
     /**
      * Initiation pages for tests
@@ -40,35 +42,38 @@ public class RegistrationDataProvider {
     private BaseFunnelPage funnel;
     private BaseSearchPage searchPage;
     private BasePaymentPage paymentPage;
-    private List<String> userEmails;
+    private List<String> userEmails = new ArrayList<String>();
+    private String userMail;
+    private String userPassword;
+    private String shortID = "null";
 
-//    @DataProvider(name = "dp")
-//    public Object[] [] parseLocaleData() {
-//        return new Object[][] {
-//                {"naughtyavenue"},
-//                {"mylustywish"},
-//                {"mynaughtydreams"},
-//                {"shagtogether"},
-//                {"flinghub"},
-//                {"naughtyevents"},
-//                {"myfling"},
-//                {"hookupsexy"},
-//                {"naughtyluck"},
-//                {"nastywish"},
-//                {"getnaughty"},
-//                {"blistyggnu"},
-//                {"blivuartignu"},
-//                {"blislem"},
-//                {"soyezcoquin"},
-//                {"flirtnu"},
-//                {"flirtanu"},
-//                {"finnemeg"},
-//                {"rencardsexy"},
-//                {"amourfinder"},
-//                {"chatdatesex"},
-//                {"myflinghub"}
-//        };
-//    }
+    @DataProvider(name = "dp")
+    public Object[] [] parseLocaleData() {
+        return new Object[][] {
+                {"naughtyavenue"},
+                {"mylustywish"},
+                {"mynaughtydreams"},
+                {"shagtogether"},
+                {"flinghub"},
+                {"naughtyevents"},
+                {"myfling"},
+                {"hookupsexy"},
+                {"naughtyluck"},
+                {"nastywish"},
+                {"getnaughty"},
+                {"blistyggnu"},
+                {"blivuartignu"},
+                {"blislem"},
+                {"soyezcoquin"},
+                {"flirtnu"},
+                {"flirtanu"},
+                {"finnemeg"},
+                {"rencardsexy"},
+                {"amourfinder"},
+                {"chatdatesex"},
+                {"myflinghub"}
+        };
+    }
 
     @BeforeTest
     public void setUp() {
@@ -84,11 +89,11 @@ public class RegistrationDataProvider {
         this.searchPage = new BaseSearchPage(this.driver);
     }
 
-//    @Test(dataProvider = "dp") String domain
-    @Test
-    public void testParseLocale() {
+    @Test(dataProvider = "dp")
+//    @Test
+    public void testParseLocale(String domain) throws IOException {
 
-        String domain = "naughtyavenue";
+//        String domain = "naughtyavenue";
         /**
          * Add Cookie
          * */
@@ -102,12 +107,31 @@ public class RegistrationDataProvider {
          * */
         driver.get(siteList.getMobVersion() + domain + siteList.getDomainLive() + trafficSourse.getAffSourcre());
 
-        System.out.println("fill reg form");
+        System.out.println("Try fill reg form...");
         index.fillRegistrationDataMans("london");
-        userEmails.add(index.getUserEmail());
-        System.out.println("submit form");
+
+        userMail = index.getUserEmail();
+        userPassword = index.getUserPassword();
+        System.out.println("user mail is: " +  userMail);
+
+
+        userEmails.add(userMail);
+        System.out.println("Try submit form...");
         index.submitRegForm();
         funnel.funnelSkip();
 
+        System.out.println("array Size is " + userEmails.size());
+
+
+        System.out.println("Try save user data...");
+        workWithCSV.saveInCSV("FileName", userMail, userPassword, shortID, domain);
+        workWithCSV.getEmailColumm();
+//        data = driver.get("192.168.12.28/sync/?datingUser="+userMail);
+
+    }
+
+    @AfterClass
+    public void finishTest() {
+        driver.quit();
     }
 }

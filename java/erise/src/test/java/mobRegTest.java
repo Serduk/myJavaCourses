@@ -87,6 +87,7 @@ public class mobRegTest {
     public void addCookie() {
         driver.get(siteList.getMobVersion() + siteList.getSitesArrayDating(0) + siteList.getDomainLive() + trafficSourse.getToSetCookie());
         driver.manage().addCookie(new Cookie("ip_address", locationDatas[2].getIp()));
+        currentSiteTest = siteList.getSitesArrayDating(0);
 
     }
 
@@ -134,7 +135,7 @@ public class mobRegTest {
     @Test(dependsOnMethods = {"regTest"})
     public void saveDataToCSV() throws IOException {
 
-        workWithCSV.saveInCSV("sadfa", userEmail, userPassword, shortID);
+        workWithCSV.saveInCSV("sadfa", userEmail, userPassword, shortID, currentSiteTest);
         workWithCSV.getEmailColumm();
     }
 

@@ -38,7 +38,7 @@ public class WorkWithCSV{
      * Add to already exist file new Data if we need
      * */
 
-    public void saveInCSV(String fileTestName, String email, String password, String shortID){
+    public void saveInCSV(String fileTestName, String email, String password, String shortID, String siteName){
 
         String createAndSaveAndAddToCSV = saveFile + fileTestName + formatForFile;
         boolean alreadyExists = new File(createAndSaveAndAddToCSV).exists();
@@ -52,12 +52,18 @@ public class WorkWithCSV{
                 writer.append("Password:");
                 writer.append(',');
                 writer.append("ShortID");
+                writer.append(",");
+                writer.append("SiteName");
                 writer.append("\n");
             }
 
             writer.append(email);
             writer.append(',');
             writer.append(password);
+            writer.append(',');
+            writer.append(shortID);
+            writer.append(',');
+            writer.append(siteName);
             writer.append("\n");
 
             //generate whatever data you want
@@ -69,20 +75,9 @@ public class WorkWithCSV{
         }
     }
 
-
     /**
-     * @Method create Head For CSV file
+     * @Method get column with email
      * */
-/*    public void createHeadForCSV() throws IOException {
-        FileWriter writer = new FileWriter(saveToCSV);
-        writer.append("Registration Time");
-        writer.append(',');
-        writer.append("User Email");
-        writer.append("Password");
-        writer.append("\n");
-    }*/
-
-
     public String getEmailColumm() throws IOException {
         File file = new File(saveToCSV);
         List<String> lines = Files.readAllLines(file.toPath(),
@@ -96,6 +91,10 @@ public class WorkWithCSV{
         return lines.get(0);
     }
 
+
+    /**
+     * @Method get test data from already exist csv file
+     * */
     public String getTestData() throws IOException {
         File file = new File(testDataCSV);
 
