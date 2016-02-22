@@ -66,6 +66,11 @@
             <artifactId>selenium-java</artifactId>
             <version>2.48.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.6.1</version>
+        </dependency>
     </dependencies>
 </project>
 
