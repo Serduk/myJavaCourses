@@ -20,7 +20,7 @@ public class ParseUserData extends AbstractWebPage{
     }
 
     /**
-     * @Fields: Describe all fields on page
+     * @Elements: Describe all fields on page
      * */
     @FindBy(id = "site")
     WebElement siteName;
@@ -47,7 +47,7 @@ public class ParseUserData extends AbstractWebPage{
     WebElement userID;
 
     @FindBy(id = "autologin")
-    WebElement autologin;
+    WebElement autologinID;
 
     @FindBy(id = "platform")
     WebElement platform;
@@ -63,4 +63,70 @@ public class ParseUserData extends AbstractWebPage{
 
     @FindBy(id = "autologinUrl")
     WebElement autoLoginURL;
+
+
+/**==============================================================================================================*/
+
+
+    /**
+     * @Methods For work with data from fields
+     * */
+
+    public String getSitename() {
+        return siteName.getText();
+    }
+
+    public String getEmail() {
+       return email.getText();
+    }
+
+    public String getGender() {
+        return gender.getText();
+    }
+
+    public String getScreenName() {
+        return screenName.getText();
+    }
+
+    public String getLocation() {
+        return location.getText();
+    }
+
+    public String getPassword() {
+        return password.getText();
+    }
+
+    public String getTrafficSource() {
+        return trafficSource.getText();
+    }
+
+    public String getID() {
+        return userID.getText();
+    }
+
+    public String getAutologinID() {
+        return autologinID.getText();
+    }
+
+    public String getPlatformRegistration() {
+        return platform.getText();
+    }
+
+    public String getRegistrationDate() {
+        return regDate.getText();
+    }
+
+    public String getCorregistration() {
+        return coregistration.getText();
+    }
+
+    public String getPaidStatus() {
+        return paidstatus.getText();
+    }
+
+    public String getAutologinURL() {
+        return autoLoginURL.getText();
+    }
+
+
 }
