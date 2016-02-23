@@ -19,6 +19,9 @@ public class ParseUserData extends AbstractWebPage{
         super(driver);
     }
 
+
+    private String parseSource = "http://192.168.12.28/show/userData/?email=";
+
     /**
      * @Elements: Describe all fields on page
      * */
@@ -72,6 +75,7 @@ public class ParseUserData extends AbstractWebPage{
      * @Methods For work with data from fields
      * */
 
+
     public String getSitename() {
         return siteName.getText();
     }
@@ -100,7 +104,7 @@ public class ParseUserData extends AbstractWebPage{
         return trafficSource.getText();
     }
 
-    public String getID() {
+    public String getUserID() {
         return userID.getText();
     }
 
@@ -128,5 +132,12 @@ public class ParseUserData extends AbstractWebPage{
         return autoLoginURL.getText();
     }
 
+
+    /**
+     * @Method for get page with alredy full data for user
+     * */
+    public String getUserData(String userEmail) {
+        return parseSource + userEmail;
+    }
 
 }

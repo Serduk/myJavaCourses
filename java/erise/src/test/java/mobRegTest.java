@@ -126,18 +126,18 @@ public class mobRegTest {
         searchPage.sendFiveFreeMessageDiffUsers(staticData.getGreetings());
     }
 
-//    @Test(dependsOnMethods = {"checkFiveFreeMessage"})
-//    public void checkRedirectoToPPWithSixMessage(){
-//        searchPage.writeMessage(10, staticData.getGreetings());
-//        Assert.assertTrue(paymentPage.paymentDataForm.isDisplayed());
-//    }
-
-    @Test(dependsOnMethods = {"regTest"})
-    public void saveDataToCSV() throws IOException {
-
-        workWithCSV.saveInCSV("sadfa", userEmail, userPassword, shortID, currentSiteTest);
-        workWithCSV.getEmailColumm();
+    @Test(dependsOnMethods = {"checkFiveFreeMessage"})
+    public void checkRedirectoToPPWithSixMessage(){
+        searchPage.writeMessage(10, staticData.getGreetings());
+        Assert.assertTrue(paymentPage.paymentDataForm.isDisplayed());
     }
+
+//    @Test(dependsOnMethods = {"regTest"})
+//    public void saveDataToCSV() throws IOException {
+//
+//        workWithCSV.saveInCSV("sadfa", userEmail, userPassword, shortID, currentSiteTest);
+//        workWithCSV.getEmailColumm();
+//    }
 
     @AfterClass
     public void closeBrowser() {

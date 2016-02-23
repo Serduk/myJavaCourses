@@ -38,7 +38,7 @@ public class WorkWithCSV{
      * Add to already exist file new Data if we need
      * */
 
-    public void saveInCSV(String fileTestName, String email, String password, String shortID, String siteName){
+    public void saveInCSV(String fileTestName, String email, String location, String userID, String siteName, String userAutologin){
 
         String createAndSaveAndAddToCSV = saveFile + fileTestName + formatForFile;
         boolean alreadyExists = new File(createAndSaveAndAddToCSV).exists();
@@ -49,9 +49,11 @@ public class WorkWithCSV{
             if (!alreadyExists) {
                 writer.append("Email:");
                 writer.append(',');
-                writer.append("Password:");
+                writer.append("location:");
                 writer.append(',');
-                writer.append("ShortID");
+                writer.append("User ID");
+                writer.append(",");
+                writer.append("Autologin");
                 writer.append(",");
                 writer.append("SiteName");
                 writer.append("\n");
@@ -59,9 +61,11 @@ public class WorkWithCSV{
 
             writer.append(email);
             writer.append(',');
-            writer.append(password);
+            writer.append(location);
             writer.append(',');
-            writer.append(shortID);
+            writer.append(userID);
+            writer.append(',');
+            writer.append(userAutologin);
             writer.append(',');
             writer.append(siteName);
             writer.append("\n");
