@@ -112,4 +112,31 @@ public class BasePaymentPage extends AbstractWebPage {
     WebElement backToTheSiteBtn;
 
     /*************************DECLINE PAGE***********************************/
+    @FindBy(xpath = ".//*[@data-decline-tab = 'pp-instructions']")
+    WebElement declineInstructionForm;
+
+    @FindBy(xpath = ".//*[@data-decline-tab = 'pp-form']")
+    WebElement declinePaymentForm;
+
+    @FindBy(xpath = ".//*[@data-decline-tab = 'pp-callback']")
+    WebElement declineCallBackForm;
+
+    @FindBy(xpath = ".//*[@class = 'support-btn']")
+    WebElement declineInstructionFormHelpLineChat;
+
+    @FindBy(xpath = ".//*[@id = 'callMeBackButton']")
+    WebElement declineInstructionFormCalMeBackBtn;
+
+    @FindBy(xpath = ".//*[@id = 'callMeBackFullPrefix']")
+    WebElement declineCallMeBackInputPrefixFild;
+
+    @FindBy(xpath = ".//*[@id = 'callMeBackPhone']")
+    WebElement declineCallMeBackPhoneNumberField;
+
+    /**************************************************METHODS**********************************************/
+
+    /**
+     * @Methhods: for work with PP
+     * */
+
 }
