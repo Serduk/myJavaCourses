@@ -46,7 +46,8 @@ public class ChromeUtils {
     public RemoteWebDriver getWebBrowser()
     {
 
-        this.driver = new RemoteWebDriver(this.capabilities);
+//        this.driver = new RemoteWebDriver(this.capabilities);
+        this.driver = new ChromeDriver(this.capabilities);
         this.driver.manage().window().maximize();
         this.driver.manage().timeouts().implicitlyWait(this.wait, TimeUnit.SECONDS);
         return this.driver;

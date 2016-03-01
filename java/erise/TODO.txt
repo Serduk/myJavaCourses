@@ -1,3 +1,4 @@
+@TODO: Fix Launcher Chrome Browser instance
 @TODO: mySQLworkBench: Recheck methods save/take from User
 @TODO: Work with CSV: upload from csv users to another test)
 @TODO: Complete test DataProvider: location for sites;
@@ -6,10 +7,7 @@
 @TODO: Parser for change localization for specific site
 @TODO: Save screenshots to FTP
 
-@TODO: Add Method who will work with incoming data from Dima (at first he mast create function)
-
-
-@TODO: Describe all PP page/create methods work with PP
+@TODO: Create methods work with PP
 @TODO: Describe leftMenu
 @TODO: Describe right menu (in search)
 @TODO: Describe account page/add method to change localization
