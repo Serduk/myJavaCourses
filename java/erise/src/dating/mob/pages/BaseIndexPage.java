@@ -85,6 +85,14 @@ public class BaseIndexPage extends AbstractWebPage {
     @FindBy(xpath = ".//*[@id='register_frm']")
     public WebElement submitForm;
 
+    /*Terms*/
+    @FindBy(xpath = ".//a[@href='/staticPage/terms']")
+    WebElement termsOfUse;
+
+    /*Privacy*/
+    @FindBy(xpath = ".//a[@href='/staticPage/privacypolicy']")
+    WebElement privacyPolicy;
+
     /**
      * Methods
      */
