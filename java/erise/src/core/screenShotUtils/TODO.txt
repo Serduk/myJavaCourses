@@ -1,2 +1,0 @@
-@TODO updateScreenShotUtils. take screen with currenUrl/orElement
-@TODO take screenShot for some element on Page
